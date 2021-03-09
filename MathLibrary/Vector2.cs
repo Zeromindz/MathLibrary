@@ -26,17 +26,21 @@ namespace MathLibrary
 		public float x;
 		public float y;
 
+		//------------------------------------------------------------------------
 		// Constructors
 		// Optional params defaulted to 0.0
+		//------------------------------------------------------------------------
 		public Vector2(float x = 0.0f, float y = 0.0f)
 		{
 			this.x = x;
 			this.y = y;
 		}
 
+		//------------------------------------------------------------------------
 		// Operator overloading
 		// Add contents of two vectors and return the result
 		// V = V + V (Point translated by a Vector)
+		//------------------------------------------------------------------------
 		public static Vector2 operator+(Vector2 lhs, Vector2 rhs)
 		{
 			Vector2 result;
@@ -45,8 +49,11 @@ namespace MathLibrary
 
 			return result;
 		}
+
+		//------------------------------------------------------------------------
 		// Subtract contents of two vectors and return the result
 		// V = V - V (Point translated by a Vector)
+		//------------------------------------------------------------------------
 		public static Vector2 operator-(Vector2 lhs, Vector2 rhs)
 		{
 			Vector2 result;
@@ -56,8 +63,10 @@ namespace MathLibrary
 			return result;
 		}
 
+		//------------------------------------------------------------------------
 		// Multiply contents a vector with a float and return the result
 		// V = V x f(vector scale)
+		//------------------------------------------------------------------------
 		public static Vector2 operator*(Vector2 lhs, float rhs)
 		{
 			Vector2 result;
@@ -67,8 +76,10 @@ namespace MathLibrary
 			return result;
 		}
 
+		//------------------------------------------------------------------------
 		// Multiply a float with the contents a vector and return the result
 		// V = f x V(vector scale)
+		//------------------------------------------------------------------------
 		public static Vector2 operator*(float lhs, Vector2 rhs)
 		{
 			Vector2 result;
@@ -77,26 +88,17 @@ namespace MathLibrary
 
 			return result;
 		}
-
-		//// M = M x V(vector transformation)
+		//------------------------------------------------------------------------
+		// M = M x V(vector transformation)
+		//------------------------------------------------------------------------
 		//public static Vector2 operator*(Vector2 lhs, Vector2 rhs)
 		//{
+		//	
 		//	Vector2 result;
-		//	result.x = rhs.x * lhs;
-		//	result.y = rhs.y * lhs;
 		//
-		//	return result;
+		//	//return result;
 		//}
 	}
-
-
-
-
-
-
-
-
-
 
 
 
