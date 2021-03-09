@@ -56,6 +56,23 @@ namespace MathLibrary
 		{
 			return new Vector3(lhs / rhs.x, lhs / rhs.y, lhs / rhs.z);
 		}
+
+		public float Magnitude()
+		{
+			// f = sqrt a^2 + b^2 + c^2
+			return (float)Math.Sqrt((x * x) + (y * y) + (z * z));
+		}
+
+		public void Normalise()
+		{
+			// Divide elements by their magnitude
+			float magnitude = Magnitude();
+			if (magnitude != 0)
+			{
+				x /= magnitude;
+				y /= magnitude;
+				z /= magnitude;
+			}
+		}
 	}
-	
 }

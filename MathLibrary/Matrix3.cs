@@ -22,9 +22,9 @@ namespace MathLibrary
 		//------------------------------------------------------------------------
 		public Matrix3(Vector3 _vectX, Vector3 _vectY, Vector3 _vectZ)
 		{
-			this.x = _vectX;
-			this.y = _vectY;
-			this.z = _vectZ;
+			x = _vectX;
+			y = _vectY;
+			z = _vectZ;
 		}
 
 		//------------------------------------------------------------------------
