@@ -50,6 +50,28 @@ namespace MathLibrary
 			return new Vector4(lhs / rhs.x, lhs / rhs.y, lhs / rhs.z, lhs / rhs.w);
 		}
 
+		// To calculate a Dot Product we simply multiply each element from one Vector with another,
+		// and add them all together
+		public float Dot(Vector4 rhs)
+		{
+			return (x * rhs.x + y * rhs.y + z * rhs.z + w * rhs.w);
+		}
+
+		// Find the vector that is ‘perpendicular’ to two other vectors in 3D space. 
+		// The magnitude of the resultant vector is a function of the ‘perpendicularness’ of the input vectors.
+		public Vector4 Cross(Vector4 lhs, Vector4 rhs)
+		{
+			double x, y, z, w;
+			x = ((lhs.y * rhs.z) - (lhs.z * rhs.y));
+			y = ((lhs.x * rhs.z) - (lhs.z * rhs.x));
+			z = ((lhs.x * rhs.y) - (lhs.y * rhs.x));
+			w = (lhs.w * rhs.w);
+
+
+			Vector4 result = new Vector4((float)x, (float)y, (float)z, (float)w);
+			return result;
+		}
+
 		public float Magnitude()
 		{
 			// f = sqrt a^2 + b^2 + c^2 + d^2

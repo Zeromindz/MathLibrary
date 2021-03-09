@@ -27,7 +27,7 @@ namespace MathLibrary
 		public float y;
 
 		//------------------------------------------------------------------------
-		// Constructors
+		// Constructor
 		// Optional params defaulted to 0.0
 		//------------------------------------------------------------------------
 		public Vector2(float x = 0.0f, float y = 0.0f)
@@ -72,9 +72,15 @@ namespace MathLibrary
 		{
 			return new Vector2(lhs * rhs.x, lhs * rhs.y);
 		}
-		
-	
-		
+
+		//------------------------------------------------------------------------
+		// Dot Product
+		//------------------------------------------------------------------------
+		public float Dot(Vector2 rhs)
+		{
+			return ( x * rhs.x + y * rhs.y);
+		}
+
 		public float Magnitude()
 		{
 			// f = sqrt a^2 + b^2
