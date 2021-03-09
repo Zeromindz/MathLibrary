@@ -43,11 +43,7 @@ namespace MathLibrary
 		//------------------------------------------------------------------------
 		public static Vector2 operator+(Vector2 lhs, Vector2 rhs)
 		{
-			Vector2 result;
-			result.x = lhs.x + rhs.x;
-			result.y = lhs.y + rhs.y;
-
-			return result;
+			return new Vector2(lhs.x + rhs.x, lhs.y + rhs.y);
 		}
 
 		//------------------------------------------------------------------------
@@ -56,24 +52,16 @@ namespace MathLibrary
 		//------------------------------------------------------------------------
 		public static Vector2 operator-(Vector2 lhs, Vector2 rhs)
 		{
-			Vector2 result;
-			result.x = lhs.x - rhs.x;
-			result.y = lhs.y - rhs.y;
-
-			return result;
+			return new Vector2(lhs.x - rhs.x, lhs.y - rhs.y);
 		}
 
 		//------------------------------------------------------------------------
-		// Multiply contents a vector with a float and return the result
+		// Multiply contents of a vector with a float and return the result
 		// V = V x f(vector scale)
 		//------------------------------------------------------------------------
 		public static Vector2 operator*(Vector2 lhs, float rhs)
 		{
-			Vector2 result;
-			result.x = lhs.x * rhs;
-			result.y = lhs.y * rhs;
-
-			return result;
+			return new Vector2(lhs.x * rhs, lhs.y * rhs);
 		}
 
 		//------------------------------------------------------------------------
@@ -82,23 +70,10 @@ namespace MathLibrary
 		//------------------------------------------------------------------------
 		public static Vector2 operator*(float lhs, Vector2 rhs)
 		{
-			Vector2 result;
-			result.x = rhs.x * lhs;
-			result.y = rhs.y * lhs;
-
-			return result;
+			return new Vector2(lhs * rhs.x, lhs * rhs.y);
 		}
-		//------------------------------------------------------------------------
-		// M = M x V(vector transformation)
-		//------------------------------------------------------------------------
-		//public static Vector2 operator*(Vector2 lhs, Vector2 rhs)
-		//{
-		//	
-		//	Vector2 result;
-		//
-		//	//return result;
-		//}
-
+		
+	
 		
 		public float Magnitude()
 		{

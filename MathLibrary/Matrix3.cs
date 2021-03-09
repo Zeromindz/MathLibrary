@@ -4,6 +4,7 @@ using System.Text;
 
 namespace MathLibrary
 {
+
 	//------------------------------------------------------------------------
 	// Matrix3
 	//------------------------------------------------------------------------
@@ -30,6 +31,15 @@ namespace MathLibrary
 		//------------------------------------------------------------------------
 		// Operators
 		//------------------------------------------------------------------------
+
+		//------------------------------------------------------------------------
+		// M = M x V(vector transformation)
+		//------------------------------------------------------------------------
+		//public static Matrix3 operator*(Matrix3 lhs, Vector3 rhs)
+		//{
+		//	return new Matrix3(lhs.x * rhs.x)
+		//}
+
 		// public static Matrix3 operator *(Matrix3 lhs, Vector3 rhs)
 		// {
 		// return new Matrix3(new Matrix3(_vectX * rhs, _vectY, _vectZ);
