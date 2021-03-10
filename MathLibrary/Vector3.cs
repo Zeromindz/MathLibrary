@@ -26,6 +26,7 @@ namespace MathLibrary
 		//------------------------------------------------------------------------
 		// Operators
 		//------------------------------------------------------------------------
+		#region Operators
 		// V = V1 + V2
 		public static Vector3 operator +(Vector3 lhs, Vector3 rhs)
 		{
@@ -56,37 +57,22 @@ namespace MathLibrary
 		{
 			return new Vector3(lhs / rhs.x, lhs / rhs.y, lhs / rhs.z);
 		}
-
-		// To calculate a Dot Product we simply multiply each element from one Vector with another,
-		// and add them all together
-		public float Dot(Vector3 rhs)
-		{
-			return (x * rhs.x + y * rhs.y + z * rhs.z);
-		}
-
-		// Find the vector that is ‘perpendicular’ to two other vectors in 3D space. 
-		// The magnitude of the resultant vector is a function of the ‘perpendicularness’ of the input vectors.
-		public Vector3 Cross(Vector3 lhs, Vector3 rhs)
-		{
-			double x, y, z;
-			x = ((lhs.y * rhs.z) - (lhs.z * rhs.y));
-			y = ((lhs.x * rhs.z) - (lhs.z * rhs.x));
-			z = ((lhs.x * rhs.y) - (lhs.y * rhs.x));
-
-
-			Vector3 result = new Vector3((float)x, (float)y, (float)z);
-			return result;
-		}
-
+		#endregion
+		
 		public float Magnitude()
 		{
+			//------------------------------------------------------------------------
+			// Divide elements by their magnitude
 			// f = sqrt a^2 + b^2 + c^2
+			//------------------------------------------------------------------------
 			return (float)Math.Sqrt((x * x) + (y * y) + (z * z));
 		}
 
 		public void Normalise()
 		{
+			//------------------------------------------------------------------------
 			// Divide elements by their magnitude
+			//------------------------------------------------------------------------
 			float magnitude = Magnitude();
 			if (magnitude != 0)
 			{
@@ -95,5 +81,30 @@ namespace MathLibrary
 				z /= magnitude;
 			}
 		}
+
+		public float Dot(Vector3 rhs)
+		{
+			//------------------------------------------------------------------------
+			// Dot Product - To calculate, we multiply corresponding elements from one Vector with another,
+			// and add them all together
+			//------------------------------------------------------------------------
+			return (x * rhs.x) + (y * rhs.y) + (z * rhs.z);
+		}
+
+		public Vector3 Cross(Vector3 rhs)
+		{
+			//------------------------------------------------------------------------
+			// Find the vector that is ‘perpendicular’ to two other vectors in 3D space. 
+			// The magnitude of the resultant vector is a function of the ‘perpendicularness’ of the input vectors.
+			//------------------------------------------------------------------------
+			Vector3 result;
+
+			result.x = ((y * rhs.z) - (z * rhs.y));
+			result.y = ((x * rhs.z) - (z * rhs.x));
+			result.z = ((x * rhs.y) - (y * rhs.x));
+
+			return result;
+		}
+
 	}
 }
