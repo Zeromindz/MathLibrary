@@ -11,12 +11,13 @@ namespace MathLibrary
 		public float z;
 		public float w;
 
-		public Vector4(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 0.0f)
+
+		public Vector4(float _x = 0.0f, float _y = 0.0f, float _z = 0.0f, float _w = 0.0f)
 		{
-			this.x = x;
-			this.y = y;
-			this.z = z;
-			this.w = w;
+			x = _x;
+			y = _y;
+			z = _z;
+			w = _w;
 		}
 
 		//------------------------------------------------------------------------

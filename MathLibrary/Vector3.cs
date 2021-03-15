@@ -16,11 +16,11 @@ namespace MathLibrary
 		// Constructors
 		// Optional params defaulted to 0.0
 		//------------------------------------------------------------------------
-		public Vector3(float x = 0.0f, float y = 0.0f, float z = 0.0f)
+		public Vector3(float _x = 0.0f, float _y = 0.0f, float _z = 0.0f)
 		{
-			this.x = x;
-			this.y = y;
-			this.z = z;
+			x = _x;
+			y = _y;
+			z = _z;
 		}
 
 		//------------------------------------------------------------------------

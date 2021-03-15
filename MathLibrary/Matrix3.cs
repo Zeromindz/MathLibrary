@@ -103,8 +103,71 @@ namespace MathLibrary
 			return result;
 		}
 
-		// 
+		public void SetRotateX(float _radians)
+		{
+			// 1 - 0 - 0
+			// 0 - cos(a) - sin(a)
+			// 0 - -sin(a) - cos(a)
 
-		//}
+			m[4] = (float)Math.Cos(_radians);
+			m[5] = -(float)Math.Sin(_radians);
+			m[7] = (float)Math.Sin(_radians);
+			m[8] = (float)Math.Cos(_radians);
+		}
+
+		public void SetRotateY(float _radians)
+		{
+			// cos(a) - 0 - -sin(a)
+			// 0 - 1 - 0
+			// sin(a) - 0 - cos(a)
+
+			m[0] = (float)Math.Cos(_radians);
+			m[2] = (float)Math.Sin(_radians);
+			m[6] = -(float)Math.Sin(_radians);
+			m[8] = (float)Math.Cos(_radians);
+		}
+
+		public void SetRotateZ(float _radians)
+		{
+			// cos(a) - sin(a) - 0
+			// -sin(a) - cos(a) - 0
+			// 0 - 0 - 1
+
+			m[0] = (float)Math.Cos(_radians);
+			m[1] = -(float)Math.Sin(_radians);
+			m[3] = -(float)Math.Sin(_radians);
+			m[4] = (float)Math.Cos(_radians);
+		}
+
+		public void SetTranslation(float _x, float _y)
+		{
+			// Xx - Yx - Zx - Tx
+			// Xy - Yy - Zy - Ty
+			// Xz - Yz - Zz - Tz
+			// 0 - 0 - 0 - V = 0 / P = 1
+		}
+
+		public void SetTranslation(Vector2 _pos)
+		{
+			// Xx - Yx - Zx - Tx
+			// Xy - Yy - Zy - Ty
+			// Xz - Yz - Zz - Tz
+			// 0 - 0 - 0 - V = 0 / P = 1
+		}
+
+		public void SetScale(float _x, float _y, float _z)
+		{
+			m[0] = _x; m[1] = 0; m[2] = 0;
+			m[3] = 0; m[4] = _y; m[5] = 0;
+			m[6] = 0; m[7] = 0; m[8] = _z;
+		}
+
+		public void SetScale(Vector3 _v)
+		{
+			m[0] = _v.x; m[1] = 0; m[2] = 0;
+			m[3] = 0; m[4] = _v.y; m[5] = 0;
+			m[6] = 0; m[7] = 0; m[8] = _v.z;
+		}
+
 	}
 }

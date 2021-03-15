@@ -30,10 +30,10 @@ namespace MathLibrary
 		// Constructor
 		// Optional params defaulted to 0.0
 		//------------------------------------------------------------------------
-		public Vector2(float x = 0.0f, float y = 0.0f)
+		public Vector2(float _x = 0.0f, float _y = 0.0f)
 		{
-			this.x = x;
-			this.y = y;
+			x = _x;
+			y = _y;
 		}
 
 		//------------------------------------------------------------------------

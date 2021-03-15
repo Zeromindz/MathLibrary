@@ -136,6 +136,45 @@ namespace MathLibrary
 			return result;
 		}
 
+		public void SetRotateX(float _radians)
+		{
+			// 1 - 0	   - 0		- 0
+			// 0 - cos(a)  - sin(a) - 0
+			// 0 - -sin(a) - cos(a) - 0
+			// 0 - 0	   - 0		- 1
+
+			m[5] = (float)Math.Cos(_radians);
+			m[6] = -(float)Math.Sin(_radians);
+			m[9] = (float)Math.Sin(_radians);
+			m[10] = (float)Math.Cos(_radians);
+		}
+
+		public void SetRotateY(float _radians)
+		{
+			// cos(a) - 0 - -sin(a) - 0
+			// 0	  - 1 - 0		- 0
+			// sin(a) - 0 - cos(a)  - 0
+			// 0	  - 0 - 0		- 1
+
+			m[0] = (float)Math.Cos(_radians);
+			m[2] = (float)Math.Sin(_radians);
+			m[8] = -(float)Math.Sin(_radians);
+			m[10] = (float)Math.Cos(_radians);
+		}
+
+		public void SetRotateZ(float _radians)
+		{
+			// cos(a)  - sin(a) - 0 - 0
+			// -sin(a) - cos(a) - 0 - 0
+			// 0	   - 0		- 1 - 0
+			// 0	   - 0		- 0 - 1
+
+			m[0] = (float)Math.Cos(_radians);
+			m[1] = -(float)Math.Sin(_radians);
+			m[4] = -(float)Math.Sin(_radians);
+			m[5] = (float)Math.Cos(_radians);
+		}
+
 	}
 
 }
