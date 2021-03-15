@@ -6,7 +6,7 @@ namespace MathLibrary
 {
 
 	//------------------------------------------------------------------------
-	// Matrix3
+	// Matrix4
 	//------------------------------------------------------------------------
 	class Matrix4
 	{
@@ -60,16 +60,16 @@ namespace MathLibrary
 			m[15] = _m15;
 			
 		}
+
 		//------------------------------------------------------------------------
 		// Operators
 		//------------------------------------------------------------------------
-
-		//------------------------------------------------------------------------
-		// M = M x V(Vector transformation)
-		//------------------------------------------------------------------------
-		
+		#region Operators
 		public static Vector4 operator *(Matrix4 lhs, Vector4 rhs)
 		{
+			//------------------------------------------------------------------------
+			// M = M x V(Vector transformation)
+			//------------------------------------------------------------------------
 			Vector4 result;
 
 			result.x = (lhs.m[0] * rhs.x) + (lhs.m[4] * rhs.y) + (lhs.m[8] * rhs.z) + (lhs.m[12] + rhs.w);
@@ -80,11 +80,11 @@ namespace MathLibrary
 			return result;
 		}
 
-		//------------------------------------------------------------------------
-		// M = M x M(Matrix multiplication)
-		//------------------------------------------------------------------------
 		public static Matrix4 operator *(Matrix4 lhs, Matrix4 rhs)
 		{
+			//------------------------------------------------------------------------
+			// M = M x M(Matrix multiplication)
+			//------------------------------------------------------------------------
 			Matrix4 result = new Matrix4();
 
 			// 0 - 4 - 8 - 12
@@ -135,6 +135,7 @@ namespace MathLibrary
 
 			return result;
 		}
+		#endregion
 
 		public void SetRotateX(float _radians)
 		{
@@ -175,6 +176,48 @@ namespace MathLibrary
 			m[5] = (float)Math.Cos(_radians);
 		}
 
+		public void SetTranslation(float _x, float _y, float _z)
+		{
+			// Xx - Yx - Zx - Tx
+			// Xy - Yy - Zy - Ty
+			// Xz - Yz - Zz - Tz
+			// Xw - Yw - Zw - Tw (V = 0 / P = 1)
+
+			m[0] = 1; m[4] = 0; m[8] = 0;  m[12] = _x;
+			m[1] = 0; m[5] = 1; m[9] = 0;  m[13] = _y;
+			m[2] = 0; m[6] = 0; m[10] = 1; m[14] = _z;
+			m[3] = 0; m[7] = 0; m[11] = 0; m[15] = 1;
+		}
+
+		public void SetTranslation(Vector3 _pos)
+		{
+			// Xx - Yx - Zx - Tx
+			// Xy - Yy - Zy - Ty
+			// Xz - Yz - Zz - Tz
+			// Xw - Yw - Zw - Tw (V = 0 / P = 1)
+
+			m[0] = 1; m[4] = 0; m[8] = 0;  m[12] = _pos.x;
+			m[1] = 0; m[5] = 1; m[9] = 0;  m[13] = _pos.y;
+			m[2] = 0; m[6] = 0; m[10] = 1; m[14] = _pos.z;
+			m[3] = 0; m[7] = 0;	m[11] = 0; m[15] = 1;
+
+		}
+
+		public void SetScale(float _x, float _y, float _z)
+		{
+			m[0] = _x; m[4] = 0;  m[8] = 0;   m[12] = 0;
+			m[1] = 0;  m[5] = _y; m[9] = 0;   m[13] = 0;
+			m[2] = 0;  m[6] = 0;  m[10] = _z; m[14] = 0;
+			m[3] = 0;  m[7] = 0;  m[11] = 0;  m[15] = 1;
+		}
+
+		public void SetScale(Vector3 _v)
+		{
+			m[0] = _v.x; m[4] = 0;    m[8] = 0;     m[12] = 0; 
+			m[1] = 0;    m[5] = _v.y; m[9] = 0;     m[13] = 0;
+			m[2] = 0;    m[6] = 0;    m[10] = _v.z; m[14] = 0;
+			m[3] = 0;    m[7] = 0;    m[11] = 0;    m[15] = 1;
+		}
 	}
 
 }

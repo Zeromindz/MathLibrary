@@ -51,11 +51,12 @@ namespace MathLibrary
 		// Operators
 		//------------------------------------------------------------------------
 
-		//------------------------------------------------------------------------
-		// M = M x V(Vector transformation)
-		//------------------------------------------------------------------------
+		#region Operators
 		public static Vector3 operator *(Matrix3 lhs, Vector3 rhs)
 		{
+			//------------------------------------------------------------------------
+			// M = M x V(Vector transformation)
+			//------------------------------------------------------------------------
 			Vector3 result;
 
 			result.x = (lhs.m[0] * rhs.x) + (lhs.m[3] * rhs.y) + (lhs.m[6] * rhs.z);
@@ -64,12 +65,12 @@ namespace MathLibrary
 
 			return result;
 		}
-
-		//------------------------------------------------------------------------
-		// M = M x M(Matrix multiplication)
-		//------------------------------------------------------------------------
+		
 		public static Matrix3 operator *(Matrix3 lhs, Matrix3 rhs)
 		{
+			//------------------------------------------------------------------------
+			// M = M x M(Matrix multiplication)
+			//------------------------------------------------------------------------
 			Matrix3 result = new Matrix3();
 
 			// 0 - 3 - 6
@@ -102,11 +103,12 @@ namespace MathLibrary
 
 			return result;
 		}
+		#endregion
 
 		public void SetRotateX(float _radians)
 		{
-			// 1 - 0 - 0
-			// 0 - cos(a) - sin(a)
+			// 1 - 0	   - 0
+			// 0 - cos(a)  - sin(a)
 			// 0 - -sin(a) - cos(a)
 
 			m[4] = (float)Math.Cos(_radians);
@@ -118,7 +120,7 @@ namespace MathLibrary
 		public void SetRotateY(float _radians)
 		{
 			// cos(a) - 0 - -sin(a)
-			// 0 - 1 - 0
+			// 0	  - 1 - 0
 			// sin(a) - 0 - cos(a)
 
 			m[0] = (float)Math.Cos(_radians);
@@ -129,9 +131,9 @@ namespace MathLibrary
 
 		public void SetRotateZ(float _radians)
 		{
-			// cos(a) - sin(a) - 0
+			// cos(a)  - sin(a) - 0
 			// -sin(a) - cos(a) - 0
-			// 0 - 0 - 1
+			// 0	   - 0		- 1
 
 			m[0] = (float)Math.Cos(_radians);
 			m[1] = -(float)Math.Sin(_radians);
@@ -141,32 +143,36 @@ namespace MathLibrary
 
 		public void SetTranslation(float _x, float _y)
 		{
-			// Xx - Yx - Zx - Tx
-			// Xy - Yy - Zy - Ty
-			// Xz - Yz - Zz - Tz
-			// 0 - 0 - 0 - V = 0 / P = 1
+			// Xx - Yx - Tx
+			// Xy - Yy - Ty
+			// Xw - Yw - Tw (V = 0 / P = 1)
+
+			m[6] = _x;
+			m[7] = _y;
 		}
 
 		public void SetTranslation(Vector2 _pos)
 		{
-			// Xx - Yx - Zx - Tx
-			// Xy - Yy - Zy - Ty
-			// Xz - Yz - Zz - Tz
-			// 0 - 0 - 0 - V = 0 / P = 1
+			// Xx - Yx - Tx
+			// Xy - Yy - Ty
+			// Xw - Yw - Tw (V = 0 / P = 1)
+			
+			m[6] = _pos.x;
+			m[7] = _pos.y;
 		}
 
-		public void SetScale(float _x, float _y, float _z)
+		public void SetScale(float _x, float _y)
 		{
-			m[0] = _x; m[1] = 0; m[2] = 0;
-			m[3] = 0; m[4] = _y; m[5] = 0;
-			m[6] = 0; m[7] = 0; m[8] = _z;
+			m[0] = _x; m[3] = 0;  m[6] = 0;
+			m[1] = 0;  m[4] = _y; m[7] = 0;
+			m[2] = 0;  m[5] = 0;  m[8] = 1;
 		}
 
-		public void SetScale(Vector3 _v)
+		public void SetScale(Vector2 _v)
 		{
-			m[0] = _v.x; m[1] = 0; m[2] = 0;
-			m[3] = 0; m[4] = _v.y; m[5] = 0;
-			m[6] = 0; m[7] = 0; m[8] = _v.z;
+			m[0] = _v.x; m[3] = 0;    m[6] = 0;
+			m[1] = 0;    m[4] = _v.y; m[7] = 0;
+			m[2] = 0;    m[5] = 0;    m[8] = 1;
 		}
 
 	}
