@@ -17,9 +17,9 @@ namespace MathLibrary
 	// * V = V.Cross(V)
 	// * f = V.Magnitude()
 	// * Normalise()
-	// setRotateX(f )
-	// setRotateY(f ) and
-	// setRotateZ(f )
+	// * setRotateX(f )
+	// * setRotateY(f ) and
+	// * setRotateZ(f )
 
 	public struct Vector2
 	{
