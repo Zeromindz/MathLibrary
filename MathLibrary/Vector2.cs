@@ -21,7 +21,7 @@ namespace MathLibrary
 	// * setRotateY(f ) and
 	// * setRotateZ(f )
 
-	public struct Vector2
+	public class Vector2
 	{
 		public float x;
 		public float y;
@@ -111,7 +111,7 @@ namespace MathLibrary
 			//------------------------------------------------------------------------
 			// Swap x and y and negate the y to find a vector at a right angle
 			//------------------------------------------------------------------------
-			Vector2 result;
+			Vector2 result = new Vector2();
 
 			result.x = -y;
 			result.y = x;

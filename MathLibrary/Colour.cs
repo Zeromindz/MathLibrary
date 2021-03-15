@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathLibrary
 {
-	class Colour
+	public class Colour
 	{
 		private uint colour = 0;
 		// 0x00000000

@@ -8,7 +8,7 @@ namespace MathLibrary
 	//------------------------------------------------------------------------
 	// Matrix4
 	//------------------------------------------------------------------------
-	class Matrix4
+	public class Matrix4
 	{
 		public float[] m;
 
@@ -70,7 +70,7 @@ namespace MathLibrary
 			//------------------------------------------------------------------------
 			// M = M x V(Vector transformation)
 			//------------------------------------------------------------------------
-			Vector4 result;
+			Vector4 result = new Vector4();
 
 			result.x = (lhs.m[0] * rhs.x) + (lhs.m[4] * rhs.y) + (lhs.m[8] * rhs.z) + (lhs.m[12] + rhs.w);
 			result.y = (lhs.m[1] * rhs.x) + (lhs.m[5] * rhs.y) + (lhs.m[9] * rhs.z) + (lhs.m[13] + rhs.w);

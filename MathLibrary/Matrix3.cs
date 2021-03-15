@@ -57,7 +57,7 @@ namespace MathLibrary
 			//------------------------------------------------------------------------
 			// M = M x V(Vector transformation)
 			//------------------------------------------------------------------------
-			Vector3 result;
+			Vector3 result = new Vector3(); 
 
 			result.x = (lhs.m[0] * rhs.x) + (lhs.m[3] * rhs.y) + (lhs.m[6] * rhs.z);
 			result.y = (lhs.m[1] * rhs.x) + (lhs.m[4] * rhs.y) + (lhs.m[7] * rhs.z);

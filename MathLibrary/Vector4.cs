@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathLibrary
 {
-	struct Vector4
+	public class Vector4
 	{
 		public float x;
 		public float y;
@@ -95,7 +95,7 @@ namespace MathLibrary
 			// Find the vector that is ‘perpendicular’ to two other vectors in 3D space. 
 			// The magnitude of the resultant vector is a function of the ‘perpendicularness’ of the input vectors.
 			//------------------------------------------------------------------------
-			Vector4 result;
+			Vector4 result = new Vector4();
 
 			result.x = ((y * rhs.z) - (z * rhs.y));
 			result.y = ((x * rhs.z) - (z * rhs.x));
