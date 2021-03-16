@@ -35,7 +35,7 @@ namespace MathLibrary
 		// V = V1 - V2
 		public static Vector3 operator -(Vector3 lhs, Vector3 rhs)
 		{
-			return new Vector3(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z);
+			return new Vector3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z);
 		}
 		// V = V1 * f
 		public static Vector3 operator *(Vector3 lhs, float rhs)
@@ -100,7 +100,7 @@ namespace MathLibrary
 			Vector3 result = new Vector3();
 
 			result.x = ((y * rhs.z) - (z * rhs.y));
-			result.y = ((x * rhs.z) - (z * rhs.x));
+			result.y = ((z * rhs.x) - (x * rhs.z));
 			result.z = ((x * rhs.y) - (y * rhs.x));
 
 			return result;

@@ -51,7 +51,7 @@ namespace MathLibrary
 			m[6] = _m6;
 			m[7] = _m7;
 			m[8] = _m8;
-			m[8] = _m9;
+			m[9] = _m9;
 			m[10] = _m10;
 			m[11] = _m11;
 			m[12] = _m12;
@@ -72,10 +72,15 @@ namespace MathLibrary
 			//------------------------------------------------------------------------
 			Vector4 result = new Vector4();
 
-			result.x = (lhs.m[0] * rhs.x) + (lhs.m[4] * rhs.y) + (lhs.m[8] * rhs.z) + (lhs.m[12] + rhs.w);
-			result.y = (lhs.m[1] * rhs.x) + (lhs.m[5] * rhs.y) + (lhs.m[9] * rhs.z) + (lhs.m[13] + rhs.w);
-			result.z = (lhs.m[2] * rhs.x) + (lhs.m[6] * rhs.y) + (lhs.m[10] * rhs.z) + (lhs.m[14] + rhs.w);
-			result.w = (lhs.m[3] * rhs.x) + (lhs.m[7] * rhs.y) + (lhs.m[11] * rhs.z) + (lhs.m[15] + rhs.w);
+			// 0 - 4 - 8 - 12	   x
+			// 1 - 5 - 9 - 13	   y
+			// 2 - 6 - 10 - 14	   z
+			// 3 - 7 - 11 - 15	   w
+
+			result.x = (lhs.m[0] * rhs.x) + (lhs.m[4] * rhs.y) + (lhs.m[8] * rhs.z) + (lhs.m[12] * rhs.w);
+			result.y = (lhs.m[1] * rhs.x) + (lhs.m[5] * rhs.y) + (lhs.m[9] * rhs.z) + (lhs.m[13] * rhs.w);
+			result.z = (lhs.m[2] * rhs.x) + (lhs.m[6] * rhs.y) + (lhs.m[10] * rhs.z) + (lhs.m[14] * rhs.w);
+			result.w = (lhs.m[3] * rhs.x) + (lhs.m[7] * rhs.y) + (lhs.m[11] * rhs.z) + (lhs.m[15] * rhs.w);
 
 			return result;
 		}

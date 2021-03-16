@@ -98,7 +98,7 @@ namespace MathLibrary
 			Vector4 result = new Vector4();
 
 			result.x = ((y * rhs.z) - (z * rhs.y));
-			result.y = ((x * rhs.z) - (z * rhs.x));
+			result.y = ((z * rhs.x) - (x * rhs.z));
 			result.z = ((x * rhs.y) - (y * rhs.x));
 			result.w = 0f;
 

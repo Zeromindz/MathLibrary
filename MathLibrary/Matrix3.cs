@@ -11,6 +11,7 @@ namespace MathLibrary
 	public class Matrix3
 	{
 		public float[] m;
+		//public float m1, m2, m3, m4, m5, m6, m7, m8, m9;
 
 		//------------------------------------------------------------------------
 		// Constructors
@@ -28,6 +29,7 @@ namespace MathLibrary
 			m[7] = 0;
 			m[8] = 1;
 
+			
 		}
 
 		public Matrix3(float _m0, float _m1, float _m2,
@@ -73,9 +75,13 @@ namespace MathLibrary
 			//------------------------------------------------------------------------
 			Matrix3 result = new Matrix3();
 
-			// 0 - 3 - 6
-			// 1 - 4 - 7
-			// 2 - 5 - 8
+			//			    0 - 3 - 6
+			//			    1 - 4 - 7
+			//			    2 - 5 - 8
+
+			// 0 - 3 - 6	0 - 3 - 6 
+			// 1 - 4 - 7	1 - 4 - 7
+			// 2 - 5 - 8	2 - 5 - 8
 
 			//m[0] = 0*0 + 3*1 + 6*2
 			//m[1] = 1*0 + 4*1 + 7*2

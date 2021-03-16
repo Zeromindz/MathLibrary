@@ -6,11 +6,16 @@ namespace MathLibrary
 {
 	public class Colour
 	{
-		private uint colour = 0;
+		public uint colour = 0;
 		// 0x00000000
 		// 00 00 00 00
 		// 00000000 00000000 00000000 00000000
 		// r  g  b  a
+
+		public Colour()
+		{
+
+		}
 
 		// Constructor with RGBA defaulted to 0
 		public Colour(uint red, uint green, uint blue, uint alpha)
