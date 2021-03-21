@@ -10,42 +10,41 @@ namespace MathLibrary
 	//------------------------------------------------------------------------
 	public class Matrix3
 	{
-		public float[] m;
-		//public float m1, m2, m3, m4, m5, m6, m7, m8, m9;
+		
+		public float m1, m2, m3, m4, m5, m6, m7, m8, m9;
 
 		//------------------------------------------------------------------------
 		// Constructors
 		//------------------------------------------------------------------------
 		public Matrix3(bool bDefault = true)
 		{
-			m = new float[9];
-			m[0] = 1;
-			m[1] = 0;
-			m[2] = 0;
-			m[3] = 0;
-			m[4] = 1;
-			m[5] = 0;
-			m[6] = 0;
-			m[7] = 0;
-			m[8] = 1;
+			m1 = 1;
+			m2 = 0;
+			m3 = 0;
+			m3 = 0;
+			m4 = 1;
+			m5 = 0;
+			m6 = 0;
+			m7 = 0;
+			m8 = 1;
 
 			
 		}
 
-		public Matrix3(float _m0, float _m1, float _m2,
-					   float _m3, float _m4, float _m5,
-					   float _m6, float _m7, float _m8)
+		public Matrix3(float _m1, float _m2, float _m3,
+					   float _m4, float _m5, float _m6,
+					   float _m7, float _m8, float _m9)
 		{
-			m = new float[9];
-			m[0] = _m0;
-			m[1] = _m1;
-			m[2] = _m2;
-			m[3] = _m3;
-			m[4] = _m4;
-			m[5] = _m5;
-			m[6] = _m6;
-			m[7] = _m7;
-			m[8] = _m8;
+			
+			m1 = _m1;
+			m2 = _m2;
+			m3 = _m3;
+			m4 = _m4;
+			m5 = _m5;
+			m6 = _m6;
+			m7 = _m7;
+			m8 = _m8;
+			m9 = _m9;
 
 		}
 
@@ -61,9 +60,9 @@ namespace MathLibrary
 			//------------------------------------------------------------------------
 			Vector3 result = new Vector3(); 
 
-			result.x = (lhs.m[0] * rhs.x) + (lhs.m[3] * rhs.y) + (lhs.m[6] * rhs.z);
-			result.y = (lhs.m[1] * rhs.x) + (lhs.m[4] * rhs.y) + (lhs.m[7] * rhs.z);
-			result.z = (lhs.m[2] * rhs.x) + (lhs.m[5] * rhs.y) + (lhs.m[8] * rhs.z);
+			result.x = (lhs.m1 * rhs.x) + (lhs.m4 * rhs.y) + (lhs.m7 * rhs.z);
+			result.y = (lhs.m2 * rhs.x) + (lhs.m5 * rhs.y) + (lhs.m8 * rhs.z);
+			result.z = (lhs.m3 * rhs.x) + (lhs.m6 * rhs.y) + (lhs.m9 * rhs.z);
 
 			return result;
 		}
@@ -95,17 +94,17 @@ namespace MathLibrary
 			//m[7] = 1*6 + 4*7 + 7*8
 			//m[8] = 2*6 + 5*7 + 8*8
 
-			result.m[0] = (lhs.m[0] * rhs.m[0]) + (lhs.m[3] * rhs.m[1]) + (lhs.m[6] * rhs.m[2]);
-			result.m[1] = (lhs.m[1] * rhs.m[0]) + (lhs.m[4] * rhs.m[1]) + (lhs.m[7] * rhs.m[2]);
-			result.m[2] = (lhs.m[2] * rhs.m[0]) + (lhs.m[5] * rhs.m[1]) + (lhs.m[8] * rhs.m[2]);
+			result.m1 = (lhs.m1 * rhs.m1) + (lhs.m4 * rhs.m2) + (lhs.m7 * rhs.m3);
+			result.m2 = (lhs.m2 * rhs.m1) + (lhs.m5 * rhs.m2) + (lhs.m8 * rhs.m3);
+			result.m3 = (lhs.m3 * rhs.m1) + (lhs.m6 * rhs.m2) + (lhs.m9 * rhs.m3);
 
-			result.m[3] = (lhs.m[0] * rhs.m[3]) + (lhs.m[3] * rhs.m[4]) + (lhs.m[6] * rhs.m[5]);
-			result.m[4] = (lhs.m[1] * rhs.m[3]) + (lhs.m[4] * rhs.m[4]) + (lhs.m[7] * rhs.m[5]);
-			result.m[5] = (lhs.m[2] * rhs.m[3]) + (lhs.m[5] * rhs.m[4]) + (lhs.m[8] * rhs.m[5]);
+			result.m4 = (lhs.m1 * rhs.m4) + (lhs.m4 * rhs.m5) + (lhs.m7 * rhs.m6);
+			result.m5 = (lhs.m2 * rhs.m4) + (lhs.m5 * rhs.m5) + (lhs.m8 * rhs.m6);
+			result.m6 = (lhs.m3 * rhs.m4) + (lhs.m6 * rhs.m5) + (lhs.m9 * rhs.m6);
 
-			result.m[6] = (lhs.m[0] * rhs.m[6]) + (lhs.m[3] * rhs.m[7]) + (lhs.m[6] * rhs.m[8]);
-			result.m[7] = (lhs.m[1] * rhs.m[6]) + (lhs.m[4] * rhs.m[7]) + (lhs.m[7] * rhs.m[8]);
-			result.m[8] = (lhs.m[2] * rhs.m[6]) + (lhs.m[5] * rhs.m[7]) + (lhs.m[8] * rhs.m[8]);
+			result.m7 = (lhs.m1 * rhs.m7) + (lhs.m4 * rhs.m8) + (lhs.m7 * rhs.m9);
+			result.m8 = (lhs.m2 * rhs.m7) + (lhs.m5 * rhs.m8) + (lhs.m8 * rhs.m9);
+			result.m9 = (lhs.m3 * rhs.m7) + (lhs.m6 * rhs.m8) + (lhs.m9 * rhs.m9);
 
 			return result;
 		}
@@ -114,37 +113,37 @@ namespace MathLibrary
 		public void SetRotateX(float _radians)
 		{
 			// 1 - 0	   - 0
-			// 0 - cos(a)  - sin(a)
-			// 0 - -sin(a) - cos(a)
+			// 0 - cos(a)  - -sin(a)
+			// 0 - sin(a)  - cos(a)
 
-			m[4] = (float)Math.Cos(_radians);
-			m[5] = -(float)Math.Sin(_radians);
-			m[7] = (float)Math.Sin(_radians);
-			m[8] = (float)Math.Cos(_radians);
+			m5 = (float)Math.Cos(_radians);
+			m6 = (float)Math.Sin(_radians);
+			m7 = -(float)Math.Sin(_radians);
+			m8 = (float)Math.Cos(_radians);
 		}
 
 		public void SetRotateY(float _radians)
 		{
-			// cos(a) - 0 - -sin(a)
+			// cos(a) - 0 - sin(a)
 			// 0	  - 1 - 0
-			// sin(a) - 0 - cos(a)
+			// -sin(a) - 0 - cos(a)
 
-			m[0] = (float)Math.Cos(_radians);
-			m[2] = (float)Math.Sin(_radians);
-			m[6] = -(float)Math.Sin(_radians);
-			m[8] = (float)Math.Cos(_radians);
+			m1 = (float)Math.Cos(_radians);
+			m3 = -(float)Math.Sin(_radians);
+			m7 = (float)Math.Sin(_radians);
+			m9 = (float)Math.Cos(_radians);
 		}
 
 		public void SetRotateZ(float _radians)
 		{
-			// cos(a)  - sin(a) - 0
-			// -sin(a) - cos(a) - 0
+			// cos(a)  - -sin(a) - 0
+			// sin(a) - cos(a) - 0
 			// 0	   - 0		- 1
 
-			m[0] = (float)Math.Cos(_radians);
-			m[1] = -(float)Math.Sin(_radians);
-			m[3] = -(float)Math.Sin(_radians);
-			m[4] = (float)Math.Cos(_radians);
+			m1 = (float)Math.Cos(_radians);
+			m2 = (float)Math.Sin(_radians);
+			m4 = -(float)Math.Sin(_radians);
+			m5 = (float)Math.Cos(_radians);
 		}
 
 		public void SetTranslation(float _x, float _y)
@@ -153,8 +152,8 @@ namespace MathLibrary
 			// Xy - Yy - Ty
 			// Xw - Yw - Tw (V = 0 / P = 1)
 
-			m[6] = _x;
-			m[7] = _y;
+			m7 = _x;
+			m8 = _y;
 		}
 
 		public void SetTranslation(Vector2 _pos)
@@ -163,22 +162,22 @@ namespace MathLibrary
 			// Xy - Yy - Ty
 			// Xw - Yw - Tw (V = 0 / P = 1)
 			
-			m[6] = _pos.x;
-			m[7] = _pos.y;
+			m7 = _pos.x;
+			m8 = _pos.y;
 		}
 
 		public void SetScale(float _x, float _y)
 		{
-			m[0] = _x; m[3] = 0;  m[6] = 0;
-			m[1] = 0;  m[4] = _y; m[7] = 0;
-			m[2] = 0;  m[5] = 0;  m[8] = 1;
+			m1 = _x; m4 = 0;  m7 = 0;
+			m2 = 0;  m5 = _y; m8 = 0;
+			m3 = 0;  m6 = 0;  m9 = 1;
 		}
 
 		public void SetScale(Vector2 _v)
 		{
-			m[0] = _v.x; m[3] = 0;    m[6] = 0;
-			m[1] = 0;    m[4] = _v.y; m[7] = 0;
-			m[2] = 0;    m[5] = 0;    m[8] = 1;
+			m1 = _v.x; m4 = 0;    m7 = 0;
+			m2 = 0;    m5 = _v.y; m8 = 0;
+			m3 = 0;    m6 = 0;    m9 = 1;
 		}
 
 	}
