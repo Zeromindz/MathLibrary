@@ -8,7 +8,7 @@ namespace MathLibrary
 	//------------------------------------------------------------------------
 	// Matrix3
 	//------------------------------------------------------------------------
-	public class Matrix3
+	public struct Matrix3
 	{
 		
 		public float m1, m2, m3, m4, m5, m6, m7, m8, m9;
@@ -16,19 +16,18 @@ namespace MathLibrary
 		//------------------------------------------------------------------------
 		// Constructors
 		//------------------------------------------------------------------------
-		public Matrix3(bool bDefault = true)
+		public Matrix3(bool bDefault)
 		{
 			m1 = 1;
 			m2 = 0;
 			m3 = 0;
-			m3 = 0;
-			m4 = 1;
-			m5 = 0;
+			m4 = 0;
+			m5 = 1;
 			m6 = 0;
 			m7 = 0;
-			m8 = 1;
+			m8 = 0;
+			m9 = 1;
 
-			
 		}
 
 		public Matrix3(float _m1, float _m2, float _m3,
@@ -110,11 +109,26 @@ namespace MathLibrary
 		}
 		#endregion
 
+		public void Identity()
+		{
+			m1 = 1;
+			m2 = 0;
+			m3 = 0;
+			m4 = 0;
+			m5 = 1;
+			m6 = 0;
+			m7 = 0;
+			m8 = 0;
+			m9 = 1;
+		}
+
 		public void SetRotateX(float _radians)
 		{
 			// 1 - 0	   - 0
 			// 0 - cos(a)  - -sin(a)
 			// 0 - sin(a)  - cos(a)
+
+			Identity();
 
 			m5 = (float)Math.Cos(_radians);
 			m6 = (float)Math.Sin(_radians);
@@ -128,6 +142,8 @@ namespace MathLibrary
 			// 0	  - 1 - 0
 			// -sin(a) - 0 - cos(a)
 
+			Identity();
+
 			m1 = (float)Math.Cos(_radians);
 			m3 = -(float)Math.Sin(_radians);
 			m7 = (float)Math.Sin(_radians);
@@ -139,6 +155,8 @@ namespace MathLibrary
 			// cos(a)  - -sin(a) - 0
 			// sin(a) - cos(a) - 0
 			// 0	   - 0		- 1
+
+			Identity();
 
 			m1 = (float)Math.Cos(_radians);
 			m2 = (float)Math.Sin(_radians);
@@ -152,6 +170,8 @@ namespace MathLibrary
 			// Xy - Yy - Ty
 			// Xw - Yw - Tw (V = 0 / P = 1)
 
+			Identity();
+
 			m7 = _x;
 			m8 = _y;
 		}
@@ -161,7 +181,9 @@ namespace MathLibrary
 			// Xx - Yx - Tx
 			// Xy - Yy - Ty
 			// Xw - Yw - Tw (V = 0 / P = 1)
-			
+
+			Identity();
+
 			m7 = _pos.x;
 			m8 = _pos.y;
 		}
