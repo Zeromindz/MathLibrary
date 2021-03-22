@@ -17,7 +17,7 @@ namespace MathLibrary
 		//------------------------------------------------------------------------
 		public Matrix4(bool bDefault = true)
 		{
-			
+
 			m1 = 1;
 			m2 = 0;
 			m3 = 0;
@@ -37,11 +37,11 @@ namespace MathLibrary
 		}
 
 		public Matrix4(float _m1, float _m2, float _m3, float _m4,
-					   float _m5, float _m6, float _m7, float _m8, 
+					   float _m5, float _m6, float _m7, float _m8,
 					   float _m9, float _m10, float _m11, float _m12,
 					   float _m13, float _m14, float _m15, float _m16)
 		{
-			
+
 			m1 = _m1;
 			m2 = _m2;
 			m3 = _m3;
@@ -58,7 +58,7 @@ namespace MathLibrary
 			m14 = _m14;
 			m15 = _m15;
 			m16 = _m16;
-			
+
 		}
 
 		//------------------------------------------------------------------------
@@ -127,7 +127,7 @@ namespace MathLibrary
 			result.m7 = (lhs.m3 * rhs.m5) + (lhs.m7 * rhs.m6) + (lhs.m11 * rhs.m7) + (lhs.m15 * rhs.m8);
 			result.m8 = (lhs.m4 * rhs.m5) + (lhs.m8 * rhs.m6) + (lhs.m12 * rhs.m7) + (lhs.m16 * rhs.m8);
 
-			result.m9 = (lhs.m1* rhs.m9) + (lhs.m5 * rhs.m10) + (lhs.m9 * rhs.m11) + (lhs.m13 * rhs.m12);
+			result.m9 = (lhs.m1 * rhs.m9) + (lhs.m5 * rhs.m10) + (lhs.m9 * rhs.m11) + (lhs.m13 * rhs.m12);
 			result.m10 = (lhs.m2 * rhs.m9) + (lhs.m6 * rhs.m10) + (lhs.m10 * rhs.m11) + (lhs.m14 * rhs.m12);
 			result.m11 = (lhs.m3 * rhs.m9) + (lhs.m7 * rhs.m10) + (lhs.m11 * rhs.m11) + (lhs.m15 * rhs.m12);
 			result.m12 = (lhs.m4 * rhs.m9) + (lhs.m8 * rhs.m10) + (lhs.m12 * rhs.m11) + (lhs.m16 * rhs.m12);
@@ -142,12 +142,34 @@ namespace MathLibrary
 		}
 		#endregion
 
+		public void Identity()
+		{
+			m1 = 1;
+			m2 = 0;
+			m3 = 0;
+			m4 = 0;
+			m5 = 0;
+			m6 = 1;
+			m7 = 0;
+			m8 = 0;
+			m9 = 0;
+			m10 = 0;
+			m11 = 1;
+			m12 = 0;
+			m13 = 0;
+			m14 = 0;
+			m15 = 0;
+			m16 = 1;
+		}
+
 		public void SetRotateX(float _radians)
 		{
 			// 1 - 0	   - 0		- 0
 			// 0 - cos(a)  - -sin(a) - 0
 			// 0 - sin(a) - cos(a) - 0
 			// 0 - 0	   - 0		- 1
+
+			Identity();
 
 			m6 = (float)Math.Cos(_radians);
 			m7 = (float)Math.Sin(_radians);
@@ -162,6 +184,8 @@ namespace MathLibrary
 			// -sin(a) - 0 - cos(a)  - 0
 			// 0	  - 0 - 0		- 1
 
+			Identity();
+
 			m1 = (float)Math.Cos(_radians);
 			m3 = -(float)Math.Sin(_radians);
 			m9 = (float)Math.Sin(_radians);
@@ -174,6 +198,8 @@ namespace MathLibrary
 			// sin(a) - cos(a) - 0 - 0
 			// 0	   - 0		- 1 - 0
 			// 0	   - 0		- 0 - 1
+
+			Identity();
 
 			m1 = (float)Math.Cos(_radians);
 			m2 = (float)Math.Sin(_radians);

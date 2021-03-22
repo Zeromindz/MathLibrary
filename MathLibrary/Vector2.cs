@@ -4,9 +4,9 @@ namespace MathLibrary
 {
 	// * Vector3(3-dimensional vector using 3 floats)
 	// * Vector4(3-dimensional homogeneous vector using 4 floats)
-	// Matrix3(2-dimensional 3x3 rotation matrix using 9 float)
-	// Matrix4(3-dimensional 4x4 transform matrix using 16 float)
-	// Colour(RGBA values stored as a 4 byte integer)
+	// * Matrix3(2-dimensional 3x3 rotation matrix using 9 float)
+	// * Matrix4(3-dimensional 4x4 transform matrix using 16 float)
+	// * Colour(RGBA values stored as a 4 byte integer)
 	// * V = V + V (point translated by a vector)
 	// * V = V – V(point translated by a vector)
 	// * V = V x f(vector scale)

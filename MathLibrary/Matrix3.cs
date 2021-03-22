@@ -71,15 +71,15 @@ namespace MathLibrary
 			//------------------------------------------------------------------------
 			// M = M x M(Matrix multiplication)
 			//------------------------------------------------------------------------
-			Matrix3 result = new Matrix3();
+			Matrix3 result = new Matrix3(default);
 
-			//			    0 - 3 - 6
 			//			    1 - 4 - 7
 			//			    2 - 5 - 8
+			//			    3 - 6 - 9
 
-			// 0 - 3 - 6	0 - 3 - 6 
-			// 1 - 4 - 7	1 - 4 - 7
+			// 1 - 4 - 7	1 - 4 - 7 
 			// 2 - 5 - 8	2 - 5 - 8
+			// 3 - 6 - 9	3 - 6 - 9
 
 			//m[0] = 0*0 + 3*1 + 6*2
 			//m[1] = 1*0 + 4*1 + 7*2
@@ -109,31 +109,23 @@ namespace MathLibrary
 		}
 		#endregion
 
-		public void Identity()
-		{
-			m1 = 1;
-			m2 = 0;
-			m3 = 0;
-			m4 = 0;
-			m5 = 1;
-			m6 = 0;
-			m7 = 0;
-			m8 = 0;
-			m9 = 1;
-		}
-
+		
 		public void SetRotateX(float _radians)
 		{
 			// 1 - 0	   - 0
 			// 0 - cos(a)  - -sin(a)
 			// 0 - sin(a)  - cos(a)
 
-			Identity();
-
+			m1 = 1;
+			m2 = 0;
+			m3 = 0;
+			m4 = 0;
 			m5 = (float)Math.Cos(_radians);
 			m6 = (float)Math.Sin(_radians);
-			m7 = -(float)Math.Sin(_radians);
-			m8 = (float)Math.Cos(_radians);
+			m7 = 0;
+			m8 = -(float)Math.Sin(_radians);
+			m9 = (float)Math.Cos(_radians);
+			
 		}
 
 		public void SetRotateY(float _radians)
@@ -142,11 +134,14 @@ namespace MathLibrary
 			// 0	  - 1 - 0
 			// -sin(a) - 0 - cos(a)
 
-			Identity();
-
 			m1 = (float)Math.Cos(_radians);
+			m2 = 0;
 			m3 = -(float)Math.Sin(_radians);
+			m4 = 0;
+			m5 = 1;
+			m6 = 0;
 			m7 = (float)Math.Sin(_radians);
+			m8 = 0;
 			m9 = (float)Math.Cos(_radians);
 		}
 
@@ -156,12 +151,17 @@ namespace MathLibrary
 			// sin(a) - cos(a) - 0
 			// 0	   - 0		- 1
 
-			Identity();
-
+			
 			m1 = (float)Math.Cos(_radians);
 			m2 = (float)Math.Sin(_radians);
+			m3 = 0;
 			m4 = -(float)Math.Sin(_radians);
 			m5 = (float)Math.Cos(_radians);
+			m6 = 0;
+			m7 = 0;
+			m8 = 0;
+			m9 = 1;
+
 		}
 
 		public void SetTranslation(float _x, float _y)
@@ -169,8 +169,6 @@ namespace MathLibrary
 			// Xx - Yx - Tx
 			// Xy - Yy - Ty
 			// Xw - Yw - Tw (V = 0 / P = 1)
-
-			Identity();
 
 			m7 = _x;
 			m8 = _y;
@@ -181,8 +179,6 @@ namespace MathLibrary
 			// Xx - Yx - Tx
 			// Xy - Yy - Ty
 			// Xw - Yw - Tw (V = 0 / P = 1)
-
-			Identity();
 
 			m7 = _pos.x;
 			m8 = _pos.y;

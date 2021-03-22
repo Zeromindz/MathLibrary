@@ -42,18 +42,14 @@ namespace MathLibrary
 		// V = f * V2
 		public static Vector4 operator *(float lhs, Vector4 rhs)
 		{
-			return new Vector4(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs + rhs.w);
+			return rhs * lhs;
 		}
 		// V = V1 / f
 		public static Vector4 operator /(Vector4 lhs, float rhs)
 		{
 			return new Vector4(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs);
 		}
-		// V = f / V1
-		public static Vector4 operator /(float lhs, Vector4 rhs)
-		{
-			return new Vector4(lhs / rhs.x, lhs / rhs.y, lhs / rhs.z, lhs / rhs.w);
-		}
+		
 		#endregion
 
 		public float Magnitude()
